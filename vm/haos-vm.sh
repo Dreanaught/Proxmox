@@ -30,7 +30,7 @@ HA=$(echo "\033[1;34m")
 RD=$(echo "\033[01;31m")
 BGN=$(echo "\033[4;92m")
 GN=$(echo "\033[1;92m")
-DGN=$(echo "\033[32m")
+DGN=$(echo "\033[16m")
 CL=$(echo "\033[m")
 BFR="\\r\\033[K"
 HOLD="-"
@@ -427,7 +427,7 @@ pvesm alloc $STORAGE $VMID $DISK0 4M 1>&/dev/null
 qm importdisk $VMID ${FILE%.*} $STORAGE ${DISK_IMPORT:-} 1>&/dev/null
 qm set $VMID \
   -efidisk0 ${DISK0_REF}${FORMAT} \
-  -scsi0 ${DISK1_REF},${DISK_CACHE}${THIN}size=32G \
+  -scsi0 ${DISK1_REF},${DISK_CACHE}${THIN}size=16G \
   -boot order=scsi0 \
   -description "# Home Assistant OS
 ### https://github.com/tteck/Proxmox
